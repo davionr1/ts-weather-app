@@ -1,0 +1,28 @@
+-- Creating Migration For Weather Table:
+-- // npx sequelize-cli model:generate --name weather --attributes resolvedAddress:string,date:date,temperature_avg:integer,temperature_max:integer,temperature_min:integer,temperature_current:integer,humidity:double,precipitation_prob:float,precipitation_type:string,wind_speed:float,wind_direction:float,visibility:integer,sunrise:time,sunset:time,uv_index:float,weather_condition:string
+
+--How to run migrations:
+-- // npx sequelize-cli db:migrate
+--Undoing Migrations
+-- // npx sequelize-cli db:migrate:undo:all
+
+--Documentation Reference
+https://sequelize.org/docs/v6/
+
+CREATE TABLE locations(    
+    city VARCHAR,  
+    city_ascii VARCHAR,    
+    lat FLOAT,  
+    lng FLOAT,  
+    country VARCHAR, 
+    iso2 VARCHAR,  
+    iso3 VARCHAR,  
+    admin_name VARCHAR,    
+    capital VARCHAR,   
+    population INT,    
+    id INT
+);
+
+npx sequelize-cli model:generate --name locations --attributes city:string,city_ascii:string,lat:double,lng:double,country:string,iso2:string,iso3:string,admin_name:string,capital:string,population:integer,id:integer
+
+city, city_ascii, lat, lng, country, iso2, iso3, admin_name, capital, population, id

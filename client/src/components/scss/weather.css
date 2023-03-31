@@ -1,0 +1,69 @@
+.section_temperature {
+  position: sticky;
+  width: auto;
+  padding: 2em;
+  margin: 2em;
+}
+.section_temperature .temperature {
+  text-align: center;
+}
+
+.section_descriptions {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  gap: 2rem;
+  position: sticky;
+  color: white;
+  width: auto;
+  margin: 1em;
+}
+.section_descriptions .card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--section-overlay);
+  padding: 2rem;
+  border-radius: 0.4rem;
+}
+.section_descriptions .card .description_card-icon {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+.section_descriptions .card h2 {
+  color: white;
+}
+.section_descriptions .card-suntime {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 0.4rem;
+}
+.section_descriptions .card-suntime .description_card-icon {
+  width: 100%;
+  display: row;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+.section_descriptions .card-suntime .description_card-icon small {
+  text-transform: capitalize;
+}
+
+.css-b62m3t-container {
+  width: 100%;
+  color: black;
+}
+.css-b62m3t-container .section_inputs {
+  position: unset;
+}/*# sourceMappingURL=weather.css.map */
