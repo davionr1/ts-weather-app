@@ -1,24 +1,28 @@
-import './scss/weather.css'
+import "./scss/weather.css";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import WeatherGallery from './WeatherGallery';
+import WeatherGallery from "./WeatherGallery";
+import LocationOption from "./LocationOption";
 
-function WeatherItem(props: { handleLocation: { city_ascii: string; admin_name: string; iso3: string; }; }) {
-
-    let [locationWeather, setLocationWeather] = useState<string[]>()
+function WeatherItem(props: { handleLocation?: LocationOption }) {
+    let [locationWeather, setLocationWeather] = useState<string[]>();
 
     console.log(props.handleLocation);
 
     function locationName() {
-        if (props.handleLocation.city_ascii !== '') {
+        if (props.handleLocation && props.handleLocation.city_ascii !== "") {
             const city =
-                (props.handleLocation.city_ascii + ' ' + props.handleLocation.admin_name + ' ' + props.handleLocation.iso3);
+                props.handleLocation.city_ascii +
+                " " +
+                props.handleLocation.admin_name +
+                " " +
+                props.handleLocation.iso3;
             console.log("Location Name:", city);
             return city;
         }
     }
-    let location = locationName()
+    let location = locationName();
 
     // const locationFunc = async () =>{
     //     const result = await axios(name)
@@ -27,42 +31,34 @@ function WeatherItem(props: { handleLocation: { city_ascii: string; admin_name: 
 
     // let location = locationFunc()
 
-    const API_KEY = process.env.REACT_APP_WEATHER_API_KEY
-    const WEATHER_HEAD = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
+    const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
+    const WEATHER_HEAD =
+        "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
     const WEATHER_MIDDLE = "?unitGroup=us&key=";
 
     useEffect(() => {
-        if (location !== 'undefined') {
+        if (location !== "undefined") {
             const fetchData = async () => {
-                const response = await fetch(
-                    WEATHER_HEAD + location + WEATHER_MIDDLE + API_KEY
-                );
+                const response = await fetch(WEATHER_HEAD + location + WEATHER_MIDDLE + API_KEY);
                 const resData = await response.json();
                 if (resData) {
                     // console.log(resData)
                     setLocationWeather([resData]);
-                    console.log('data', locationWeather)
+                    console.log("data", locationWeather);
                 } else {
                     console.log("ERROR");
                 }
             };
             fetchData();
-        }else{
-            console.log("No Location Name Selected")
+        } else {
+            console.log("No Location Name Selected");
         }
-    }, [location])
+    }, [location]);
 
-    console.log('Location Weather: ',locationWeather)
+    console.log("Location Weather: ", locationWeather);
     // console.log('Location weather length:', location.length)
 
-
-    return (
-        
-         <WeatherGallery handleSetLocation={locationWeather}/>
-         
-    )
+    return <WeatherGallery handleSetLocation={locationWeather} />;
 }
 
-
 export default WeatherItem;
-
