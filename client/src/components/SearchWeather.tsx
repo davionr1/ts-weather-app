@@ -14,6 +14,7 @@ import { SingleValue } from "react-select";
 import WeatherItem from "./WeatherItem";
 import LocationOption from "./LocationOption";
 
+
 function SearchWeather() {
     const [locationsData, setLocationsData] = useState<LocationOption[]>([]);
     const [selectedValue, setSelectedValue] = useState<LocationOption>();
@@ -94,6 +95,6 @@ function SearchWeather() {
     );
 }
 
-// https://github.com/davionr1/ts-weather-app
+
 
 export default SearchWeather;

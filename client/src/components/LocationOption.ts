@@ -4,7 +4,13 @@ interface LocationOption {
     city_ascii: string;
     admin_name: string;
     iso3: string;
-    // TODO: Finish the other props, e.g. lat, lng
+    lat: number;
+    lng: number;
+    country: string;
+    iso2:string;
+    capital: string;
+    population: number
+    
 }
 
 export default LocationOption;
